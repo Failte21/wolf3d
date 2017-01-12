@@ -6,7 +6,7 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 15:31:12 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/09 17:22:15 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/12 14:52:06 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@
 # define MOTIONNOTIFY 6
 # define POINTERMOTIONMASK (1L<<6)
 # define MAP(a, b, c, d, e) (a - b) * (e - d) / (c - b) + d
-# define MOVESPEED 0.1
+# define MOVESPEED 1
+# define ROTSPEED M_PI / 30
+# define MOP(Value) Value < 0 ? -1 : 1
 
 # include "../mlx/mlx.h"
 # include <stdio.h>
@@ -53,9 +55,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include "data.h"
-# include "coord.h"
 # include "color.h"
-# include "grid.h"
 
 void			put_px_to_img(t_data data, int x, int y, t_color c);
 void			raise_error(int error);
@@ -63,5 +63,6 @@ int				key_released(int keycode, t_data *data);
 int				key_pressed(int keycode, t_data *data);
 int				mouse_motion(int x, int y, t_data *data);
 int				mouse_clicked(int button, int x, int y, t_data *data);
+int				raycast(t_data *d);
 
 #endif

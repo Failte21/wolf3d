@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   coord.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 08:37:51 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/12 12:04:57 by lsimon           ###   ########.fr       */
+/*   Created: 2016/12/01 08:36:17 by lsimon            #+#    #+#             */
+/*   Updated: 2016/12/09 09:07:35 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include "../includes/fdf.h"
 
-t_color		new_color(unsigned char r, unsigned char g, unsigned char b)
+void	update_coord(t_coord *coord, int x, int y)
 {
-	t_color new;
-
-	new.r = r;
-	new.g = g;
-	new.b = b;
-	return (new);
+	coord->x = x;
+	coord->y = y;
 }

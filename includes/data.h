@@ -6,26 +6,14 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 17:48:52 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/10 13:29:10 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/12 13:24:58 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_H
 # define DATA_H
 
-# include "grid.h"
-
-typedef struct	s_data
-{
-	void			*mlx;
-	void			*w;
-	void			*img;
-	int				w;
-	int				h;
-	int				tilewidth;
-}				t_data;
-
-typedef struct	s_imginf
+typedef struct s_imginf
 {
 	int		endian;
 	int		sl;
@@ -33,13 +21,19 @@ typedef struct	s_imginf
 	char	*s;
 }				t_imginf;
 
-typedef struct	s_pos
+typedef struct	s_data
 {
+	void		*mlx;
+	void		*win;
+	void		*img;
+	int			w;
+	int			h;
+	int			tilewidth;
 	double		camx;
 	double		posx;
 	double		posy;
 	double		rayposx;
-	double		rayposY;
+	double		rayposy;
 	double		dirx;
 	double		diry;
 	double		raydirx;
@@ -54,8 +48,22 @@ typedef struct	s_pos
 	double		sidedisty;
 	double		deltadistx;
 	double		deltadisty;
-},				t_pos;
+	int			side;
+	double		pwalldist;
+	int			lineheight;
+	int			hit;
+	int			drawstart;
+	int			drawend;
+}				t_data;
 
+
+typedef struct	s_coord
+{
+	int		x;
+	int		y;
+}				t_coord;
+
+void			update_coord(t_coord coord, int x, int y);
 t_data			init_data(void);
 
 #endif

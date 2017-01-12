@@ -6,19 +6,20 @@
 #    By: lsimon <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/02 17:31:23 by lsimon            #+#    #+#              #
-#    Updated: 2017/01/10 11:00:01 by lsimon           ###   ########.fr        #
+#    Updated: 2017/01/12 13:43:51 by lsimon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -Ofast -march=native -O2
+CFLAGS = -Wall -Werror -Wextra -Ofast -march=native -O2 -g
 
 LDFLAGS = -framework OpenGl -framework Appkit
 
 LINKS = libft/libft.a mlx/libmlx.a
 
-SRC = srcs/main.c srcs/data.c srcs/put_px_to_img.c \
+SRC = srcs/main.c srcs/data.c srcs/put_px_to_img.c srcs/raycasting.c\
+		srcs/color.c srcs/key_event_manager.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -26,7 +27,7 @@ NAME = wolf3d
 
 all: $(NAME)
 
-fractol: $(OBJS)
+$(NAME): $(OBJS)
 	make -C libft
 	make -C mlx
 	$(CC) $(LDFLAGS) $(LINKS) -o $@ $^

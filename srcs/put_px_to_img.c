@@ -6,18 +6,18 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 15:35:10 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/06 16:27:19 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/12 11:43:10 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/wolf3d.h"
 
 void	put_px_to_img(t_data data, int x, int y, t_color c)
 {
 	t_imginf	img;
 	int			ppos;
 
-	if (x >= data.img_width || y >= data.img_height || y < 0)
+	if (x >= data.w || y >= data.h || y < 0)
 		return ;
 	if (x < 0)
 		return ;
