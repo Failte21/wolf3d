@@ -5,73 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/02 12:49:53 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/12 12:04:06 by lsimon           ###   ########.fr       */
+/*   Created: 2017/01/13 11:27:37 by lsimon            #+#    #+#             */
+/*   Updated: 2017/01/13 11:28:43 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-static void		dl1(t_data data, t_coord start, t_linfo linfo)
+void	line(int x, t_color color, t_data data)
 {
-	int	x;
-	int	y;
-	int	i;
+	int		i;
+	t_color	sky;
+	t_color	ground;
 
-	x = start.x;
-	y = start.y;
-	i = 0;
-	linfo.cumul = linfo.diffx / 2;
-	while (i < linfo.diffx)
+	sky = new_color(175, 206, 255);
+	ground = new_color(56, 46, 33);
+	i = -1;
+	while (i++ < HEIGHT)
 	{
-		x += linfo.xinc;
-		linfo.cumul += linfo.diffy;
-		if (linfo.cumul >= linfo.diffx)
-		{
-			linfo.cumul -= linfo.diffx;
-			y += linfo.yinc;
-		}
-		put_px_to_img(data, x, y, linfo.c);
-		i++;
+		if (i < data.drawstart)
+			put_px_to_img(data, x, i, sky);
+		else if (i > data.drawend)
+			put_px_to_img(data, x, i, ground);
+		else
+			put_px_to_img(data, x, i, color);
 	}
-}
-
-static void		dl2(t_data data, t_coord start, t_linfo linfo)
-{
-	int	x;
-	int	y;
-	int	i;
-
-	x = start.x;
-	y = start.y;
-	i = 0;
-	linfo.cumul = linfo.diffy / 2;
-	while (i < linfo.diffy)
-	{
-		y += linfo.yinc;
-		linfo.cumul += linfo.diffx;
-		if (linfo.cumul >= linfo.diffy)
-		{
-			linfo.cumul -= linfo.diffy;
-			x += linfo.xinc;
-		}
-		put_px_to_img(data, x, y, linfo.c);
-		i++;
-	}
-}
-
-void			line(t_data data, t_coord start, t_coord end, t_color color)
-{
-	t_linfo	linfo;
-
-	linfo.xinc = MOP(end.x - start.x);
-	linfo.yinc = MOP(end.y - start.y);
-	linfo.diffx = abs(end.x - start.x);
-	linfo.diffy = abs(end.y - start.y);
-	linfo.c = color;
-	put_px_to_img(data, start.x, start.y, linfo.c);
-	if (linfo.diffx > linfo.diffy)
-		dl1(data, start, linfo);
-	else
-		dl2(data, start, linfo);
 }

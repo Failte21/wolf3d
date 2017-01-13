@@ -6,7 +6,7 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 09:52:45 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/12 14:45:40 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/13 12:50:42 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ t_data			init_data(void)
 	d = data_mlxinit();
 	d.w = IMG_WIDTH;
 	d.h = IMG_HEIGHT;
-	d.posx = 22;
+	d.posx = 12;
 	d.posy = 12;
 	d.dirx = -1;
-	d.diry = -1;
+	d.diry = 0;
+	d.planex = 0;
+	d.planey = 0.66;
 	return (d);
 }

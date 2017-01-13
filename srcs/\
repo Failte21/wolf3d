@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/05 16:10:46 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/13 12:31:44 by lsimon           ###   ########.fr       */
+/*   Created: 2017/01/13 13:21:17 by lsimon            #+#    #+#             */
+/*   Updated: 2017/01/13 13:26:51 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-int				main()
+char	*get_map(char *s, t_data d)
 {
-	t_data	data;
+	int		fd;
+	char	*line;
+	int		rreturn;
 
-	data = init_data();
-	mlx_hook(data.win, 2, (1L<<0), key_pressed, &data);
-	mlx_loop_hook(data.mlx, raycast, &data);
-	mlx_key_hook(data.win, key_released, &data);
-	mlx_loop(data.mlx);
-	return (0);
+	if ((fd = open(s, O_RDONLY)) < 0)
+		return (NULL);
+	if ((rreturn = ft_get_next_line(fd, &line)) < 0)
+		return (NULL);
+	
 }

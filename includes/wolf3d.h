@@ -6,7 +6,7 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 15:31:12 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/12 14:52:06 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/13 13:01:10 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 # define RIGHT 124
 # define DOWN 125
 # define UP 126
-# define WIDTH 512
-# define HEIGHT 384
+# define WIDTH 1200
+# define HEIGHT 1200
 # define IMG_WIDTH WIDTH
 # define IMG_HEIGHT HEIGHT
 # define TILEWIDTH 64
@@ -46,7 +46,6 @@
 # define MAP(a, b, c, d, e) (a - b) * (e - d) / (c - b) + d
 # define MOVESPEED 1
 # define ROTSPEED M_PI / 30
-# define MOP(Value) Value < 0 ? -1 : 1
 
 # include "../mlx/mlx.h"
 # include <stdio.h>
@@ -64,5 +63,7 @@ int				key_pressed(int keycode, t_data *data);
 int				mouse_motion(int x, int y, t_data *data);
 int				mouse_clicked(int button, int x, int y, t_data *data);
 int				raycast(t_data *d);
+void			line(int x, t_color color, t_data data);
+//int				**get_map(char *s);
 
 #endif

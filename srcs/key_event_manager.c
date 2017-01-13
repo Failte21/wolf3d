@@ -6,7 +6,7 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 16:24:58 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/12 14:37:55 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/13 13:02:30 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	key_pressed(int keycode, t_data *d)
 {
+	double	tmp;
+
 	if (keycode == W)
 	{
 		d->posx += d->dirx * MOVESPEED;
@@ -26,26 +28,23 @@ int	key_pressed(int keycode, t_data *d)
 	}
 	if (keycode == D)
 	{
-		double tmp;
-
 		tmp = d->dirx;
-		d->dirx = d->dirx * cos(-ROTSPEED) - d->diry * sin(-ROTSPEED);
-		d->diry = tmp * sin(-ROTSPEED) + d->diry * cos(-ROTSPEED);
+		d->dirx = d->dirx * cos(-M_PI / 60) - d->diry * sin(-M_PI / 60);
+		d->diry = tmp * sin(-M_PI / 60) + d->diry * cos(-M_PI / 60);
 		tmp = d->planex;
-		d->planex = d->planex * cos(-ROTSPEED) - d->planey * sin(-ROTSPEED);
-		d->planey = tmp * sin(-ROTSPEED) + d->planey * cos(-ROTSPEED);
+		d->planex = d->planex * cos(-M_PI / 60) - d->planey * sin(-M_PI / 60);
+		d->planey = tmp * sin(-M_PI / 60) + d->planey * cos(-M_PI /
+				30);
 	}
-	if (keycode == D)
-{
-		double tmp;
-
-		tmp = d->dirx;
-		d->dirx = d->dirx * cos(ROTSPEED) - d->diry * sin(ROTSPEED);
-		d->diry = tmp * sin(ROTSPEED) + d->diry * cos(ROTSPEED);
-		tmp = d->planex;
-		d->planex = d->planex * cos(ROTSPEED) - d->planey * sin(ROTSPEED);
-		d->planey = tmp * sin(ROTSPEED) + d->planey * cos(ROTSPEED);
-}
+	if (keycode == A)
+	{
+		d->olddirx = d->dirx;
+		d->dirx = d->dirx * cos(M_PI / 60) - d->diry * sin(M_PI / 60);
+		d->diry = d->olddirx * sin(M_PI / 60) + d->diry * cos(M_PI / 60);
+		d->oldplanex = d->planex;
+		d->planex = d->planex * cos(M_PI / 60) - d->planey * sin(M_PI / 60);
+		d->planey = d->oldplanex * sin(M_PI / 60) + d->planey * cos(M_PI / 60);
+	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 17:48:52 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/12 13:24:58 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/13 13:21:46 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ typedef struct	s_data
 	int			hit;
 	int			drawstart;
 	int			drawend;
+	char		*map;
+	int			mapw;
+	int			maph;
 }				t_data;
 
 
