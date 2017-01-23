@@ -6,7 +6,7 @@
 #    By: lsimon <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/02 17:31:23 by lsimon            #+#    #+#              #
-#    Updated: 2017/01/13 12:29:42 by lsimon           ###   ########.fr        #
+#    Updated: 2017/01/20 11:36:57 by lsimon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ LDFLAGS = -framework OpenGl -framework Appkit
 LINKS = libft/libft.a mlx/libmlx.a
 
 SRC = srcs/main.c srcs/data.c srcs/put_px_to_img.c srcs/raycasting.c\
-		srcs/color.c srcs/key_event_manager.c srcs/lines.c
+		srcs/color.c srcs/key_event_manager.c srcs/draw.c srcs/map.c\
+		srcs/update.c srcs/editor.c srcs/editor_key_event_manager.c\
+		srcs/save_lvl.c srcs/game.c
 
 OBJS = $(SRC:.c=.o)
 

@@ -6,14 +6,14 @@
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 14:52:24 by lsimon            #+#    #+#             */
-/*   Updated: 2016/12/08 09:21:04 by lsimon           ###   ########.fr       */
+/*   Updated: 2017/01/16 12:34:44 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define BUFF_SIZE 4096
+# define BUFF_SIZE 1024
 
 # include <string.h>
 # include <stdlib.h>

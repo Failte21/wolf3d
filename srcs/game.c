@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/04 09:48:38 by lsimon            #+#    #+#             */
-/*   Updated: 2017/01/04 10:01:11 by lsimon           ###   ########.fr       */
+/*   Created: 2017/01/20 11:33:44 by lsimon            #+#    #+#             */
+/*   Updated: 2017/01/20 11:35:37 by lsimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/wolf3d.h"
 
-void	raise_error(int error)
+int		game(t_data *d)
 {
-	if (error == WGARGNB)
-		write(2, "Usage: ./fractol fractal name\n", 30);
-	if (error == WGARG)
-		write(2, "Unknown fractal\n", 16);
-	exit(1);
+	if (d->type == 1)
+		raycast(d);
+	else
+		editor(d);
+	return (0);
 }
